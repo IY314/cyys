@@ -1,14 +1,36 @@
+require 'std/math'
+
+struct Person is
+    string first_name,
+    string last_name,
+    u8 age
+end
+
 # self -- a special parameter keyword that allows extension of a type
-# is -- a keyword that prepends a statement or block
-#       if a statement follows, the result is used (like in a function, it is
-#       the result)
+# do -- a keyword that prepends a block
+# is -- like do, but it can also be a statement and the result is used
 # to -- a keyword that specifies a range
 # ALL FUNCTIONS ARE PURE
 func factorial(u32 self): u32 is product(1 to self)
+
+# procedures are allowed to have side effects
+proc print_fact(u32[] nums) is
+    nums.each(closure(u32 n) is n |> .factorial |> cout.put)
+end
 
 # execution starts at the code keyword
 code is
     cout.put('hello world')
 
-    cout.put(5.factorial)
+    let x: i32 = 3
+
+    let me: Person = {
+        first_name = 'John',
+        last_name = 'Doe',
+        age = 3
+    }
+
+    if x == me.age cout.put('I am 3 years old!')
+
+    print_fact([1, 2, x, x, 5])
 end
