@@ -8,6 +8,7 @@ struct Pos
     std::string fname, ftext;
 
     Pos(const Pos &o) noexcept = default;
+    ~Pos() noexcept = default;
 
     Pos &operator=(const Pos &o) noexcept = default;
 
