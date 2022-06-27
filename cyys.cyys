@@ -1,0 +1,13 @@
+# self -- a special parameter keyword that allows extension of a type
+# is -- a keyword that prepends a statement or block
+#       if a statement follows, the result is used (like in a function, it is
+#       the result)
+# to -- a keyword that specifies a range
+func factorial(u32 self): u32 is product(1 to self)
+
+# execution starts at the code keyword
+code is
+    cout.put('hello world')
+
+    cout.put(5.factorial)
+end
