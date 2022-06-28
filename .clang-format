@@ -68,6 +68,7 @@ SpacesInContainerLiterals: 'false'
 SpacesInParentheses: 'false'
 SpacesInSquareBrackets: 'false'
 Standard: Cpp11
+StatementMacros: ['match_add_token']
 TabWidth: '4'
 UseTab: Never
 
