@@ -5,21 +5,10 @@
 
 #include "pos.hpp"
 
-struct Token
-{
-    enum struct Type
-    {
-        Int,
-        Float,
-        String,
-        Ident,
-        Keyword,
-        Literal,
-        End
-    } type;
+struct Token {
+    enum struct Type { Int, Float, String, Ident, Keyword, Literal, End } type;
 
-    enum struct LitType
-    {
+    enum struct LitType {
         LParen,
         RParen,
         LBracket,
@@ -39,13 +28,13 @@ struct Token
         MoreEquals
     };
 
-    using ValueType =
-        std::variant<long long, long double, std::string, LitType>;
+    using ValueType
+        = std::variant<long long, long double, std::string, LitType>;
 
     ValueType value;
 
     Pos start, end;
 
-    Token(const Token &o) noexcept = default;
+    Token(const Token& o) noexcept = default;
     ~Token() noexcept = default;
 };
