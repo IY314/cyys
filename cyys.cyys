@@ -30,7 +30,9 @@ code is
         age = 3
     }
 
-    if x == me.age cout.put('I am 3 years old!')
+    if x == me.age do
+        cout.put('I am 3 years old!')
+    end
 
     print_fact([1, 2, x, x, 5])
 end
