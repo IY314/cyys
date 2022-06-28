@@ -1,8 +1,8 @@
-require 'std/math'
+require 'std/math' as _
 
 struct Person is
-    string first_name,
-    string last_name,
+    string first_name
+    string last_name
     u8 age
 end
 

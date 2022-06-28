@@ -6,30 +6,18 @@
 #include "pos.hpp"
 
 struct Token {
-    enum struct Type { Int, Float, String, Ident, Keyword, Literal, End } type;
+    enum struct Type {
+        Int,
+        Float,
+        String,
+        Ident,
+        Keyword,
+        Literal,
+        Newline,
+        End
+    } type;
 
-    enum struct LitType {
-        LParen,
-        RParen,
-        LBracket,
-        RBracket,
-        LBrace,
-        RBrace,
-        Comma,
-        Dot,
-        Pipe,
-        Colon,
-        Assign,
-        Equals,
-        NotEquals,
-        Less,
-        More,
-        LessEquals,
-        MoreEquals
-    };
-
-    using ValueType
-        = std::variant<long long, long double, std::string, LitType>;
+    using ValueType = std::variant<long long, long double, std::string>;
 
     ValueType value;
 
