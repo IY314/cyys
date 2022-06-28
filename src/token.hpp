@@ -25,7 +25,18 @@ struct Token
         LBracket,
         RBracket,
         LBrace,
-        RBrace
+        RBrace,
+        Comma,
+        Dot,
+        Pipe,
+        Colon,
+        Assign,
+        Equals,
+        NotEquals,
+        Less,
+        More,
+        LessEquals,
+        MoreEquals
     };
 
     using ValueType =

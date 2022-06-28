@@ -15,7 +15,7 @@ func factorial(u32 self): u32 is product(1 to self)
 
 # procedures are allowed to have side effects
 proc print_fact(u32[] nums) is
-    nums.each(closure(u32 n) is n |> .factorial |> cout.put)
+    nums.each(closure(u32 n) is n | .factorial | cout.put)
 end
 
 # execution starts at the code keyword
