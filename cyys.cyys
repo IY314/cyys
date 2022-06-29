@@ -26,7 +26,7 @@ code is
     let me: Person = {
         first_name = 'John',
         last_name = 'Doe',
-        age = 3
+        age = 3 + 234
     }
 
     if x == me.age do

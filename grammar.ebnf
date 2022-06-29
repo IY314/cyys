@@ -1,0 +1,85 @@
+file = topstmt{topstmt};
+
+topstmt = require | structdef | funcdef | procdef | codedef;
+
+require = "require" string ["as" (ident | "_")];
+
+structdef = "struct" ident "is" {typedecl} "end";
+
+funcdef = "func" name "(" [param {"," param}] ")" ":" type is;
+
+procdef = "proc" name "(" [param {"," param}] ")" [":" type] is;
+
+param = typedecl | "self";
+
+type = ident | "Self";
+
+codedef = "code" is;
+
+typedecl = type ident;
+
+is = "is" ((stmt{stmt} "end") | expr);
+
+stmt = (letstmt | call | ifstmt) {newline};
+
+letstmt = "let" ident ":" type "=" expr;
+
+call = name "(" [expr {"," expr}] ")";
+
+ifstmt = "if" expr then {"elif" expr then} ["else" then];
+
+then = do | stmt;
+
+do = "do" stmt{stmt} "end";
+
+expr = ternary | or;
+
+ternary = or "if" or ["else" or];
+
+or = and {"or" and};
+
+and = equal {"and" equal};
+
+equal = comp {("==" | "!=") comp};
+
+comp = term {("<" | ">" | "<=" | ">=") term};
+
+term = factor {("+" | "-") factor};
+
+factor = unary {("*" | "/" | "%") unary};
+
+unary = {"!" | "+" | "-"}atom;
+
+atom = ("(" expr ")") | call | access | constant;
+
+access = ident {"." ident};
+
+constant = int | float | string;
+
+letter = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M"
+       | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+       | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m"
+       | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z";
+
+digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+
+newline = "\n" | "\r";
+
+character = letter | digit | newline | "~" | "!" | "@" | "#" | "$"
+        | "%" | "^" | "&" | "*" | "(" | ")" | "-" | "=" | "_" | "+"
+        | "\t" | "\'" | "[" | "]" | "{" | "}" | "\\" | "|" | ";" | ":"
+        | """ | "," | "." | "/" | "<" | ">" | "?" | "`";
+
+charseq = character{character};
+
+letterseq = letter{letter};
+
+digitseq = digit{digit};
+
+int = digitseq;
+
+float = digitseq "." digitseq;
+
+string = "'" charseq "'";
+
+ident = letter{letter | digit | "_"};
