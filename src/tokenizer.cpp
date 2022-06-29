@@ -53,7 +53,8 @@ std::vector<Token> tokenize(const std::string& fname,
     const std::vector<std::string> keywords{
         R"(^require\b)", R"(^_\b)",    R"(^struct\b)", R"(^is\b)",
         R"(^end\b)",     R"(^func\b)", R"(^self\b)",   R"(^to\b)",
-        R"(^proc\b)",    R"(^let\b)",  R"(^if\b)",     R"(^do\b)"},
+        R"(^proc\b)",    R"(^code\b)", R"(^let\b)",    R"(^if\b)",
+        R"(^do\b)"},
         literals{R"(^\()", R"(^\))", R"(^\[)", R"(^\])", R"(^\{)", R"(^\})",
                  "^,",     R"(^\.)", R"(^\|)", "^:",     "^==",    "^=",
                  "^!=",    "^<=",    "^>=",    "^<",     "^>"};

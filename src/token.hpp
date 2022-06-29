@@ -13,8 +13,7 @@ struct Token {
         Ident,
         Keyword,
         Literal,
-        Newline,
-        End
+        Newline
     } type;
 
     using ValueType = std::variant<long long, long double, std::string>;
